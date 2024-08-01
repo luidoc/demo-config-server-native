@@ -20,12 +20,13 @@ spring:
             apps:
               uri: https://github.com/luidoc/spring-cloud-config-repo.git
               pattern:
-                - '*/dev'
+                - '*/{application}/dev'
               searchPaths:
-                - /{application}
+                - '/{application}/dev/config'
+              defaultLabel: main
               timeout: 2                # Seconds server will wait to acquire an HTTP connection
               force-pull: false         # Force pull from the remote repository if the local copy is dirty
               skip-ssl-validation: true # Git server’s SSL certificate can be disabled
-              try-master-branch: true
+              try-master-branch: false
 encrypt:
   key: asdfajazdfjalasdfasdf
